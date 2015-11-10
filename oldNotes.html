@@ -1,0 +1,34 @@
+<h4>Previous Notes</h4>
+<div class="space"></div>
+<p>Search Message : <input type="text" ng-model="test"></p>
+<div class="space"></div>
+<div>
+	<table class="table table-striped">
+		<thead><tr>
+		    <th>Note No&nbsp;&nbsp;<button id="sr" class="btn btn-default" ng-click="sort('sr')"><span class="glyphicon glyphicon-chevron-up"></span></button></th>
+		    <th>Message&nbsp;&nbsp;<button id="msg" class="btn btn-default" ng-click="sort('msg')"><span class="glyphicon glyphicon-chevron-up"></span></button></th>
+		    <th>Created On&nbsp;&nbsp;<button id="crtd" class="btn btn-default" ng-click="sort('crtd')"><span class="glyphicon glyphicon-chevron-up"></span></button></th>
+		    <th>Modified On&nbsp;&nbsp;<button id="mdfy" class="btn btn-default" ng-click="sort('mdfy')"><span class="glyphicon glyphicon-chevron-up"></span></button></th>
+		    <th>Edit</th>
+		    <th>Delete</th>
+		</tr></thead>
+		<tbody>
+		<tr ng-repeat="x in notes | filter:test | orderBy : order">
+			<td>{{ x.Sr }}</td>
+	    	<td>{{ x.Message }}</td>
+			<td>{{ x.Created }}</td>
+			<td>{{ x.Modified }}</td>
+			<td>
+				<button class="btn btn-info" ng-click="editNote(x.Sr)">
+						<span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit
+					</button>
+			</td>
+			<td>
+				<button class="btn btn-danger" ng-click="deleteNote(x.Sr)"> 
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
